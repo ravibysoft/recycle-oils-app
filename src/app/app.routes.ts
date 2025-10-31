@@ -15,10 +15,10 @@ export const routes: Routes = [
             { path: '', component: Onboarding },
             { path: 'role-section', component: RoleSelection },
             { path: 'login', component: Login },
-            { path: 'registration1', component: RegistrationStep1 },
-            { path: 'registration2', component: RegistrationStep2 },
-            { path: 'registration3', component: RegistrationStep3 },
-            { path: 'registration4', component: VerificationSuccess },
+            { path: 'registration_step1', component: RegistrationStep1 },
+            { path: 'registration_step2', component: RegistrationStep2 },
+            { path: 'registration_step3', component: RegistrationStep3 },
+            { path: 'registration_step4', component: VerificationSuccess },
 
         ]
 

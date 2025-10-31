@@ -1,0 +1,18 @@
+<div *ngIf="visible && toast"
+    class="fixed top-6 right-6 bg-white shadow-lg rounded-lg px-5 py-3 border-l-4 transition-all duration-300 transform"
+    [ngClass]="{
+        'translate-x-0 opacity-100': visible,
+        'translate-x-20 opacity-0': !visible,
+        'border-green-500': toast.type === 'success',
+        'border-red-500': toast.type === 'error',
+        'border-yellow-500': toast.type === 'warning'
+     }">
+    <div class="flex items-center space-x-3">
+        <i class="fa" [ngClass]="{
+         'fa-check-circle text-green-500': toast.type === 'success',
+         'fa-exclamation-circle text-red-500': toast.type === 'error',
+         'fa-info-circle text-yellow-500': toast.type === 'warning'
+       }"></i>
+        <span class="text-gray-800 text-sm font-medium">{{ toast.message }}</span>
+    </div>
+</div>

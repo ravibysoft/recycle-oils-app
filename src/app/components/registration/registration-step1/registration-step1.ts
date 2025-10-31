@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ToastService } from '../../../core/services/toast.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration-step1',
@@ -15,8 +17,11 @@ export class RegistrationStep1 {
   password = '';
   confirmPassword = '';
   otp = ['', '', '', '', '', ''];
+  otpInputs = Array(6).fill('');
   passwordVisible = false;
   confirmPasswordVisible = false;
+  showVerifiedModal = false;
+  verificationMessage = '';
 
   passwordRules = [
     { label: 'Must be at least 8 characters', test: (v: string) => v.length >= 8 },
@@ -24,6 +29,7 @@ export class RegistrationStep1 {
     { label: 'Must contain one numeric character', test: (v: string) => /\d/.test(v) },
     { label: 'Must contain at least one special character', test: (v: string) => /[!@#$%^&*(),.?":{}|<>]/.test(v) },
   ];
+  constructor(private toast: ToastService, private router: Router) { }
 
   togglePasswordVisibility(type: 'main' | 'confirm') {
     if (type === 'main') this.passwordVisible = !this.passwordVisible;
@@ -34,16 +40,35 @@ export class RegistrationStep1 {
     if (this.password === this.confirmPassword && this.phoneNumber) {
       this.step.set(2);
     } else {
-      alert('Please fill all fields correctly.');
+      this.toast.show('Please fill all fields correctly.', 'error');
     }
   }
 
   verifyOtp() {
-    alert('Phone verified successfully!');
+    const otpValue = this.otp.join('');
+    if (otpValue.length === 6) {
+      this.verificationMessage = 'Phone verified successfully!';
+      this.showVerifiedModal = true;
+    } else {
+      this.toast.show('Please enter the full OTP.', 'error');
+    }
+  }
+  moveToNext(event: any, index: number) {
+    const value = event.target.value;
+    if (value && index < this.otpInputs.length - 1) {
+      const next = document.querySelectorAll('input')[index + 1] as HTMLInputElement;
+      next?.focus();
+    }
+  }
+  closeVerifiedModal() {
+    this.showVerifiedModal = false;
+    this.toast.show('Verification complete!', 'success');
+    this.router.navigate(['/registration_step2'], { skipLocationChange: true });
   }
 
+
   resendOtp() {
-    alert('OTP resent!');
+    this.toast.show('OTP resent!', 'success');
   }
 
   allowOnlyNumbers(event: KeyboardEvent) {
