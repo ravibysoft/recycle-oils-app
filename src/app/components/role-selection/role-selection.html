@@ -1,0 +1,45 @@
+<div class="flex flex-col items-center justify-center min-h-screen bg-cover bg-center relative text-center p-6"
+    style="background-image: url('assets/images/bg.png')">
+    <div class="absolute inset-0 bg-teal-900 bg-opacity-10"></div>
+
+    <div class="relative z-10 w-full max-w-xs">
+        <h2 class="text-white text-sm mb-8">Join the movement to recycle smarter!</h2>
+
+        <!-- First Card -->
+        <div class="bg-white bg-opacity-60 rounded-2xl shadow-lg p-6 mb-6 backdrop-blur-sm">
+            <div class="flex flex-col items-center">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md mb-4">
+                    <img src="assets/images/building-icon.png" alt="icon" class="w-8 h-8" />
+                </div>
+
+                <p class="text-gray-800 text-sm mb-4 px-2">
+                    Whether you’re a home recycler or a future Ranger, hop in and start
+                    your journey here.
+                </p>
+
+                <button
+                    class="bg-teal-600 text-white py-2 px-6 rounded-full font-medium shadow hover:bg-teal-700 transition"
+                    (click)="selectRole('recycler')">
+                    Recycle or Ranger Up
+                </button>
+            </div>
+        </div>
+
+        <!-- Second Card -->
+        <div class="bg-white bg-opacity-60 rounded-2xl shadow-lg p-6 backdrop-blur-sm">
+            <div class="flex flex-col items-center">
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-md mb-4">
+                    <img src="assets/images/building-icon.png" alt="icon" class="w-8 h-8" />
+                </div>
+
+                <p class="text-gray-800 text-sm mb-4">I’m Waste-Wise Business</p>
+
+                <button
+                    class="bg-teal-600 text-white py-2 px-8 rounded-full font-medium shadow hover:bg-teal-700 transition"
+                    (click)="selectRole('business')">
+                    Business
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

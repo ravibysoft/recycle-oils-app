@@ -1,0 +1,9 @@
+.backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+button:hover {
+  transform: scale(1.03);
+  transition: transform 0.2s ease-in-out;
+}

@@ -1,0 +1,110 @@
+<div class="min-h-screen bg-white flex flex-col justify-center items-center p-6">
+    <!-- STEP 1 -->
+    <div *ngIf="step() === 1" class="w-full max-w-sm">
+        <div class="flex items-center space-x-2 mb-6">
+            <button (click)="goBack()" class="text-gray-500 text-sm">&larr; Back</button>
+        </div>
+
+        <h1 class="text-2xl font-semibold text-gray-900">Account Registration</h1>
+        <p class="text-gray-600 mb-6">Register for an account</p>
+
+        <div class="w-1/4 h-1 bg-teal-500 rounded mb-6"></div>
+
+        <form class="space-y-5">
+            <div>
+                <label class="text-sm font-medium text-gray-700">First Name <span class="text-red-500">*</span></label>
+                <input type="text" placeholder="Name as per NRIC/Passport"
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none" />
+            </div>
+
+            <div>
+                <label class="text-sm font-medium text-gray-700">Last Name <span class="text-red-500">*</span></label>
+                <input type="text" placeholder="Name as per NRIC/Passport"
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none" />
+            </div>
+
+            <div>
+                <label class="text-sm font-medium text-gray-700">Email <span
+                        class="text-gray-400">(optional)</span></label>
+                <input type="email" placeholder="Enter your email"
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none" />
+            </div>
+
+            <div>
+                <label class="text-sm font-medium text-gray-700">Date of Birth <span
+                        class="text-red-500">*</span></label>
+                <input type="date"
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none" />
+            </div>
+
+            <div>
+                <label class="text-sm font-medium text-gray-700">Gender <span class="text-red-500">*</span></label>
+                <select
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none">
+                    <option value="">Select your gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="text-sm font-medium text-gray-700">Nationality <span class="text-red-500">*</span></label>
+                <input type="text" placeholder="Select your nationality"
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none" />
+            </div>
+
+            <div>
+                <label class="text-sm font-medium text-gray-700">Ethnicity <span class="text-red-500">*</span></label>
+                <input type="text" placeholder="Select your ethnicity"
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-teal-500 focus:outline-none" />
+            </div>
+
+            <button type="button"
+                class="w-full bg-teal-600 text-white py-3 rounded-full font-medium mt-6 hover:bg-teal-700 transition"
+                (click)="nextStep()">
+                Continue
+            </button>
+        </form>
+    </div>
+
+    <!-- STEP 2 (OTP) -->
+    <div *ngIf="step() === 2" class="w-full max-w-sm text-center">
+        <div class="min-h-screen bg-white p-6 flex flex-col justify-between">
+            <div class="max-w-md mx-auto">
+                <div class="flex items-center space-x-2 mb-6">
+                    <button (click)="goBack()" class="text-gray-500 text-sm">&larr; Back</button>
+                </div>
+
+                <h1 class="text-2xl font-semibold text-gray-900">Account Registration</h1>
+                <p class="text-gray-600 mb-6">Register for an account</p>
+
+                <div class="w-1/4 h-1 bg-teal-500 rounded mb-6"></div>
+
+                <div class="text-center mb-6">
+                    <div class="bg-teal-50 p-3 rounded-full inline-block mb-4">
+                        <i class="fa fa-envelope text-teal-600 text-2xl"></i>
+                    </div>
+                    <h2 class="text-lg font-medium text-gray-800">Email</h2>
+                    <p class="text-gray-500 text-sm mt-1">We sent an OTP to james@gmail.com</p>
+                </div>
+
+                <div class="flex justify-center space-x-2 mb-6">
+                    <input type="text" maxlength="1"
+                        class="w-10 h-10 text-center border border-teal-500 rounded-md text-lg"
+                        *ngFor="let d of digits" />
+                </div>
+
+                <button (click)="verifyEmail()"
+                    class="w-full bg-teal-600 text-white py-3 rounded-full font-medium hover:bg-teal-700 transition">
+                    Verify
+                </button>
+
+                <p class="text-center text-gray-600 text-sm mt-4">
+                    Didn’t receive the OTP? <a href="#" class="text-teal-600 font-medium">Click to resend</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+img {
+  transition: all 0.3s ease;
+}
+
+button {
+  width: 100%;
+}

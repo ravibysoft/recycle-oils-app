@@ -1,0 +1,27 @@
+<div class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-teal-300 to-lime-200 p-6">
+  <div class="w-full max-w-xs">
+    <img [src]="slides[currentSlide()].image" alt="onboarding image"
+      class="rounded-2xl shadow-md w-full transition-all duration-500" />
+
+    <div class="text-center mt-6">
+      <h2 class="text-xl font-semibold text-gray-800">
+        {{ slides[currentSlide()].title }}
+      </h2>
+      <p class="text-gray-600 mt-2">
+        {{ slides[currentSlide()].subtitle }}
+      </p>
+
+      <!-- Dots -->
+      <div class="flex justify-center space-x-2 mt-4">
+        <span *ngFor="let slide of slides; let i = index" class="h-2 w-2 rounded-full transition-colors duration-300"
+          [class.bg-gray-400]="i !== currentSlide()" [class.bg-teal-600]="i === currentSlide()"></span>
+      </div>
+
+      <!-- Button -->
+      <button class="mt-8 bg-teal-600 text-white py-3 px-8 rounded-full font-medium shadow hover:bg-teal-700 transition"
+        (click)="getStarted()">
+        Get Started
+      </button>
+    </div>
+  </div>
+</div>
