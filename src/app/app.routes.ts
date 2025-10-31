@@ -6,7 +6,7 @@ import { RoleSelection } from './components/role-selection/role-selection';
 import { Login } from './components/login/login';
 import { RegistrationStep1 } from './components/registration/registration-step1/registration-step1';
 import { RegistrationStep3 } from './components/registration/registration-step3/registration-step3';
-import { VerificationSuccess } from './components/registration/verification-success/verification-success';
+import { SignUpSuccess } from './components/registration/sign-up-success/sign-up-success';
 
 export const routes: Routes = [
     {
@@ -18,7 +18,7 @@ export const routes: Routes = [
             { path: 'registration_step1', component: RegistrationStep1 },
             { path: 'registration_step2', component: RegistrationStep2 },
             { path: 'registration_step3', component: RegistrationStep3 },
-            { path: 'registration_step4', component: VerificationSuccess },
+            { path: 'signUpSuccess', component: SignUpSuccess },
 
         ]
 
